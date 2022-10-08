@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<!--Header Section-->
+<div class="header">
+    <div class="nav">
+        <ul>
+            <li><a href ="#profile">ABOUT</a></li>
+            <li><a href ="#post">BLOG</a></li>
+            <li><a href ="#contact">CONTACT</a></li>
+        </ul>
+    </div>
+    <div class="headcontainer">
+        <div class="left">
+            <img id = "profile" src="{% static 'images/P.png' %}" alt="photo">
+        </div>
+        <div class="right">
+            <h1>Lokesh</h1>
+            <p>Dadi Institute of Engineering & Technology</p>
+            <div class="icons">
+                <p>@Follow me</p>
+                <br>
+                <span><a href="https://github.com/pentakotalokesh" target="_blank"><img src="{% static 'images/github.png' %}" width="10%"></a></span>
+                <span><a href="https://linkedin.com/in/lokeshdeveloper" target="_blank"><img src="{% static 'images/linkedin.png' %}" width="10.5%"></a></span>
+                <span><a href="mailto:pentakotalokesh1@gmail.com" target="_blank"><img src="{% static 'images/send.png' %}" width="10%"></a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog Section-->
+<div class="blogposts">
+    <h2>Latest Posts</h2>
+    <br>
+    <br>
+    {% for p in post %}
+    <br>
+    <div id="post">
+        <img src="{% static 'images/sticky-notes.png' %}" alt="postfavicon" width="5%">&nbsp; &nbsp;<span>Posted on {{p.date}} &nbsp;<i class="fa-regular fa-calendar-days"></i></span>
+        <br>
+        <br>
+        <h3>{{p.title}}<a href="{% url 'blogview' p.id %}"><i class="fa-solid fa-arrow-right"></i></a></h3>
+        <br>
+        <hr>
+    </div>
+    {% endfor %}
+    
+</div>
+<br>
+<br>
+<!--Contact section-->
+<div class="contact" id="contact">
+    <h2>Contact</h2>
+    <br>
+    <br>
+    <div class="details">
+        <i class="fa-solid fa-at"></i><span><a href="mailto:pentakotalokesh1@gmail.com" target="_blank">pentakotalokesh1@gmail.com</a></span><br>
+        <i class="fa-brands fa-linkedin-in"></i><span><a href="https://www.linkedin.com/in/lokeshdeveloper" target="_blank">Lokesh Pentakota</a></span><br>
+        <i class="fa-solid fa-hashtag"></i><span><a href="https://www.instagram.com/lokesh__pentakota/?hl=en" target="_blank">lokesh_pentakota</a></span>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+    <script src="https://kit.fontawesome.com/203f5ea330.js" crossorigin="anonymous"></script>
+    <a href="https://www.flaticon.com/free-icons/github" title="github icons"></a>
+    <title>{% block title %}Lokesh{% endblock title %}</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

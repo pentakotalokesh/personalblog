@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% block title %}{{posts.title}}{% endblock title %}
+{% load static %}
+{% block content %}
+<div header-section>
+    <div><h1>{{post.title}}</h1></div>
+    <hr>
+    <div class="blogcontent">
+        <h3>By Lokesh</h3>
+        <span><i class="fa-regular fa-calendar-days"></i>&nbsp;Posted on {{post.date}}</span>
+        <div class="maincontent">
+            <h2>{{post.title}}</h2>
+            <br>
+            <h4>{{post.description|safe}}</h4>
+            {% if post.code %}
+            <pre>
+                <code id="code">
+{{post.code}}
+                </code>
+            </pre>
+            {% endif %} 
+            {% if post.output %}
+            <h3>OUTPUT</h3>
+            <pre>
+            <code>
+{{post.output}}
+            </code>
+        </pre>
+        {% endif %}
+        </div>
+    </div>
+</div>
+<!--Comments section-->
+<hr>
+<div class="commentcontainer">
+    <h2>Leave comment</h2>
+    <br>
+<form method="post" action="">
+    {% csrf_token %}
+    <label>Name</label><br>
+    {{comment_form.name}}
+    <br>
+    <label>Message</label><br>
+    {{comment_form.body}}
+    <br>
+    <input type="submit" value="Add" />
+</form>
+</div>
+<hr>
+<div class="comments">
+    <h2 style="color: red;">comments.....</h2>
+    {% if comments %}
+    {% for c in comments %}
+    <div class="single-comment">
+        <img id = "user" src="{% static 'images/user.png' %}"><span><h3 style="color: #FF6347;">{{c.name}}</h3></span>
+        <p>{{c.body}}</p>
+    </div>
+{% endfor %}
+{% else %}
+<h3>No Comments</h3>
+{% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Hammersmith One', sans-serif;
+    background-color: #e3e3e3;
+
+    color: black;
+    align-content: center;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: auto;
+}
+h1{
+    font-size: 3rem;
+    font-weight: 2em;
+    color: #c60021;
+}
+h2{
+    font-size: 1.5rem;
+    line-height: 1rem;
+}
+
+.headcontainer{
+    display: flex;
+    margin:auto;
+    margin-top: 5em;
+    border: 1px solid #061460;
+    width: 50%;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.nav{
+    margin: auto;
+    margin-top: 2em;
+    text-align: center;
+}
+ul li{
+    display: inline;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+a{
+    text-decoration: none;
+    outline: none;
+}
+a:hover{
+    border-bottom:5px solid #c60021;
+    color: none;
+    outline: none;
+}
+.left{
+    flex: 50%
+    
+}
+.right{
+    flex: 50%;
+    margin: auto;
+}
+#profile{
+    border: 1px solid #343148;
+    border-radius: 50%;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.blogposts{
+    margin: auto;
+    width: 50%;
+    margin-top: 8em;
+}
+.contact{
+    margin: auto;
+    width: 50%;
+}
+.details{
+    padding: 1em;
+    display: inline-block;
+}
+.fa-solid{
+    padding: 1em;
+    color: #c60021;
+}
+.fa-brands{
+    padding: 1em;
+    color: #c60021;
+}
+.fa-regular{
+    color: #c60021;
+}
+
+.blogcontent{
+    margin: auto;
+    width: 50%;
+    padding: 1em;
+}
+.maincontent{
+    padding: 5em;
+    width: 100%;
+}
+.cont{
+    padding-top: 2em;
+    line-height: 2em;
+    width: 50%;
+}
+pre code {
+    background-color: #28282B;
+    color: white;
+    display: block;
+    border-radius: 10px;
+    font-family: monospace;
+    padding: 1em;
+  }
+  sub{
+    font-weight: 10%;
+    color: red;
+  }
+  .commentcontainer{
+    margin: auto;
+    width: 50%;
+    padding: 1em;
+  }
+.single-comment{
+    line-height: 1.6;
+    padding: 1em;
+}
+  .comments{
+    margin: auto;
+    width: 50%;
+    padding: 1em;
+    line-height: 1.6;
+  }
+  #user{
+    width: 5%;
+  }
+  @media (max-width: 480px) {
+    html{
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: hidden;
+    }
+    body{
+        overflow-x: hidden;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    a{
+        -webkit-tap-highlight-color: transparent;
+    }
+    a:hover{
+        border-bottom: 2px solid #c60021;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        line-height: 1em;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    .headcontainer {
+      flex-direction: column;
+      width: 75%;
+      overflow-x: hidden;
+    }
+    .right{
+        text-align: center;
+    }
+    #profile{
+        box-shadow: none;
+        margin-left: 25%;
+        border: 1px solid black;
+    }
+    .blogposts{
+        
+        margin-top: 7em;
+        width: 100%;
+        padding: 1em;
+        overflow-x: hidden;
+    }
+    .contact{
+        margin: auto;
+        width: 100%;
+        padding: 1em;
+    }
+    .blogcontent{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .maincontent{
+        width: 100%;
+        padding: 1em;
+    }
+    #code{
+        word-wrap: break-word;
+        overflow: auto;
+    }
+    .commentcontainer{
+        margin: auto;
+        width: 100%;
+      }
+  .single-comment{
+    margin: auto;
+    width: 100%;
+}
+  .comments{
+    margin: auto;
+    width: 100%;
+  }
+  #user{
+    width: 10%;
+  }
+}
+
+  @media (max-width: 1280px) {
+    html{
+        scroll-behavior: smooth;
+    }
+    .blogcontent{
+        width: 100%;
+    }
+    pre code{
+        padding: 1em;
+    }
+  }
+
+
+
