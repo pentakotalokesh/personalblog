@@ -1,61 +1,94 @@
-{% extends 'main.html' %}
 {% load static %}
-{% block content %}
-<!--Header Section-->
-<div class="header">
-    <div class="nav">
-        <ul>
-            <li><a href ="#profile">ABOUT</a></li>
-            <li><a href ="#post">BLOG</a></li>
-            <li><a href ="#contact">CONTACT</a></li>
-        </ul>
-    </div>
-    <div class="headcontainer">
-        <div class="left">
-            <img id = "profile" src="{% static 'images/P.png' %}" alt="photo">
-        </div>
-        <div class="right">
-            <h1>Lokesh</h1>
-            <p>Dadi Institute of Engineering & Technology</p>
-            <div class="icons">
-                <p>@Follow me</p>
-                <br>
-                <span><a href="https://github.com/pentakotalokesh" target="_blank"><img src="{% static 'images/github.png' %}" width="10%"></a></span>
-                <span><a href="https://linkedin.com/in/lokeshdeveloper" target="_blank"><img src="{% static 'images/linkedin.png' %}" width="10.5%"></a></span>
-                <span><a href="mailto:pentakotalokesh1@gmail.com" target="_blank"><img src="{% static 'images/send.png' %}" width="10%"></a></span>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Home</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="https://kit.fontawesome.com/203f5ea330.js" crossorigin="anonymous"></script>
+    <a href="https://www.flaticon.com/free-icons/github" title="github icons"></a>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <a href="./main.html">
+                <h2 class="logo">Lokesh</h2>
+            </a>
+
+            <div class="menu" id="menu">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="{% url 'index' %}" class="list-link current">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#article-title" class="list-link">Posts</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">contact</a>
+                    </li>
+                </ul>
             </div>
+            <div class="list list-right">
+                <button class="btn place-items-center" id="theme-toggle-btn">
+                    <i class="ri-sun-line sun-icon"></i>
+                    <i class="ri-moon-line moon-icon"></i>
+                </button>
+
+                <button class="btn place-items-center" id="search-icon">
+                    <i class="ri-search-line"></i>
+                </button>
+
+                <button class="btn place-items-center screen-lg-hidden menu-toggle-icon" id="menu-toggle-icon">
+                    <i class="ri-menu-3-line open-menu-icon"></i>
+                    <i class="ri-close-line close-menu-icon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- Search -->
+    <div class="search-form-container container" id="search-form-container">
+
+        <div class="form-container-inner">
+
+            <form action="" class="form">
+                <input class="form-input" type="text" placeholder="What are you looking for?">
+                <button class="btn form-btn" type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+            <span class="form-note">Or press ESC to close.</span>
+
         </div>
+
+        <button class="btn form-close-btn place-items-center" id="form-close-btn">
+            <i class="ri-close-line"></i>
+        </button>
+
     </div>
-</div>
-<!-- Blog Section-->
-<div class="blogposts">
-    <h2>Latest Posts</h2>
-    <br>
-    <br>
-    {% for p in post %}
-    <br>
-    <div id="post">
-        <img src="{% static 'images/sticky-notes.png' %}" alt="postfavicon" width="5%">&nbsp; &nbsp;<span>Posted on {{p.date}} &nbsp;<i class="fa-regular fa-calendar-days"></i></span>
+    <!-- Featured articles -->
+    <div class="article-wrapper">
+        <div class="head-line">
+            <h1>Latest Posts</h1>
+        </div>
+        {% for p in post %}
+        <div class="article-title" id="article-title">
+            <img src="{% static 'images/sticky-notes.png' %}" alt="postfavicon" width="5%"><span>Posted on {{p.date}} &nbsp;<i class="fa-regular fa-calendar-days"></i></span>
+            <br>
+            <br>
+            <a href="{% url 'blogview' p.id %}">{{p.title}}</a>
         <br>
-        <br>
-        <h3>{{p.title}}<a href="{% url 'blogview' p.id %}"><i class="fa-solid fa-arrow-right"></i></a></h3>
-        <br>
+        </div>
         <hr>
+        {% endfor %}
     </div>
-    {% endfor %}
-    
-</div>
-<br>
-<br>
-<!--Contact section-->
-<div class="contact" id="contact">
-    <h2>Contact</h2>
-    <br>
-    <br>
-    <div class="details">
-        <i class="fa-solid fa-at"></i><span><a href="mailto:pentakotalokesh1@gmail.com" target="_blank">pentakotalokesh1@gmail.com</a></span><br>
-        <i class="fa-brands fa-linkedin-in"></i><span><a href="https://www.linkedin.com/in/lokeshdeveloper" target="_blank">Lokesh Pentakota</a></span><br>
-        <i class="fa-solid fa-hashtag"></i><span><a href="https://www.instagram.com/lokesh__pentakota/?hl=en" target="_blank">lokesh_pentakota</a></span>
-    </div>
-</div>
-{% endblock content %}
+    <!-- Custom script -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

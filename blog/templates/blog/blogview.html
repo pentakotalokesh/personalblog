@@ -1,63 +1,126 @@
-{% extends 'main.html' %}
-{% block title %}{{posts.title}}{% endblock title %}
 {% load static %}
-{% block content %}
-<div header-section>
-    <div><h1>{{post.title}}</h1></div>
-    <hr>
-    <div class="blogcontent">
-        <h3>By Lokesh</h3>
-        <span><i class="fa-regular fa-calendar-days"></i>&nbsp;Posted on {{post.date}}</span>
-        <div class="maincontent">
-            <h2>{{post.title}}</h2>
-            <br>
-            <h4>{{post.description|safe}}</h4>
-            {% if post.code %}
-            <pre>
-                <code id="code">
-{{post.code}}
-                </code>
-            </pre>
-            {% endif %} 
-            {% if post.output %}
-            <h3>OUTPUT</h3>
-            <pre>
-            <code>
-{{post.output}}
-            </code>
-        </pre>
-        {% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{post.title}} | Post</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container" id="navbar">
+            <a href="./index.html">
+                <h2 class="logo">Lokesh</h2>
+            </a>
+            <div class="menu" id="menu">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="#" class="list-link current">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Posts</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="list list-right">
+                <div class="icon-box place-items-center" id="theme-toggle-btn">
+                    <i class="ri-sun-line sun-icon"></i>
+                    <i class="ri-moon-line moon-icon"></i>
+                </div>
+
+                <div class="icon-box place-items-center" id="search-icon">
+                    <i class="ri-search-line"></i>
+                </div>
+
+                <div class="icon-box place-items-center screen-lg-hidden menu-toggle-icon" id="menu-toggle-icon">
+                    <i class="ri-menu-3-line open-menu-icon"></i>
+                    <i class="ri-close-line close-menu-icon"></i>
+                </div>
+
+                <a href="#" class="list-link screen-sm-hidden">Sign in</a>
+                <a href="#" class="btn sign-up-btn fancy-border screen-sm-hidden">
+                    <span>Sign up</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search -->
+    <div class="search-form-container container" id="search-form-container">
+        <div class="form-container">
+            <form action="" class="form">
+                <input class="form-input" type="text" placeholder="What are you looking for?">
+                <button class="btn form-btn icon-box" type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+            <span class="form-note">Or press ESC to close.</span>
+        </div>
+        <div class="btn form-close-btn icon-box place-items-center" id="form-close-btn">
+            <i class="ri-close-line"></i>
         </div>
     </div>
-</div>
-<!--Comments section-->
-<hr>
-<div class="commentcontainer">
-    <h2>Leave comment</h2>
-    <br>
-<form method="post" action="">
-    {% csrf_token %}
-    <label>Name</label><br>
-    {{comment_form.name}}
-    <br>
-    <label>Message</label><br>
-    {{comment_form.body}}
-    <br>
-    <input type="submit" value="Add" />
-</form>
-</div>
-<hr>
-<div class="comments">
-    <h2 style="color: red;">comments.....</h2>
-    {% if comments %}
-    {% for c in comments %}
-    <div class="single-comment">
-        <img id = "user" src="{% static 'images/user.png' %}"><span><h3 style="color: #FF6347;">{{c.name}}</h3></span>
-        <p>{{c.body}}</p>
-    </div>
-{% endfor %}
-{% else %}
-<h3>No Comments</h3>
-{% endif %}
-</div>
-{% endblock content %}
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">{{post.title}}</h3>
+                <div class="article-data">
+                    <span>{{post.date}}</span>
+                    <span class="article-data-spacer"></span>
+                    <span>4 Min read</span>
+                </div>
+            </div>
+
+            <div class="container">
+                <p>
+                    {{post.description}}
+                </p>
+                <blockquote class="quote">
+                    <pre style="white-space: pre-wrap; word-break: keep-all;"><p>{{post.code}}</p></pre>
+                </blockquote>
+                <blockquote class="quote">
+                    <pre style="white-space: pre-wrap; word-break: keep-all;"><p>{{post.output}}</p></pre>
+                </blockquote>
+                <p>
+                    
+                </p>
+
+                <div class="author d-grid">
+                    <div class="author-image-box">
+                        <img src="{% static 'images/P.png' %}" alt="">
+                    </div>
+                    <div class="author-about">
+                        <h3 class="author-name">Lokesh</h3>
+                        <p>Dadi Institute of Engineering & Technology,Computer Science & Engineering</p>
+                        <ul class="list social-media">
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Custom script -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
