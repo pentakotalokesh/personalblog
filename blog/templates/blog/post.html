@@ -1,0 +1,64 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{post.title}} | Post</title>
+    <!-- Favicon -->
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <script src="https://kit.fontawesome.com/203f5ea330.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="{% url 'index' %}">
+        <img id= "logo" src="{% static 'images/logo-black.svg' %}" width="35%"/>
+        </a>
+        <div class="header-right">
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-github"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-twitter"></i>
+        </div>
+    </header>
+    {% include 'navbar.html' %}
+    <div class="row">
+        <div class="column1">
+            <img src="{{post.post_img.url}}" width="100%" />
+            <br>
+            <br>
+            <h2 style="color:maroon ;">{{post.title}}</h2>
+            <p>{{post.description}}</p>
+            {% if post.code %}
+            <div class="code-block">
+                    <pre><!--
+                    --><code class="language-clike"><!--
+                    -->{{post.code}}
+                    </code>
+                    </pre>
+            </div>
+            {% endif %}
+            {% if post.output %}
+            <div class="code-block">
+                <pre><!--
+                --><code class="language-css"><!--
+                -->{{post.output}}
+                </code>
+                </pre>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <h2>About</h2>
+        <p>@LokeshPentakota</p>
+        <small>Dadi Institute of Engineering & Technology</small>
+      </footer>
+</body>
+</html>

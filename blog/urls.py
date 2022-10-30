@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
     path('',views.index,name='index'),
     path('blogview/<str:pk>/',views.blogview,name='blogview'),
+    path('posts',views.allposts,name='allview'),
 ]

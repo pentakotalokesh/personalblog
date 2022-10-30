@@ -1,0 +1,15 @@
+{% load static %}
+<nav class="navbar">
+    <div class="menu" id="menu">
+        <ul class="list">
+            <li class="list-item">
+                <a href="{% url 'index' %}" class="list-link current">Recent</a>
+            </li>
+            <li class="list-item">
+                <a href="{% url 'allview' %}" class="list-link">Posts</a>
+            </li>
+            <li class="list-item">
+                <i class="fa fa-download"></i><a href="#" class="list-link">Resume</a>
+            </li>
+        </ul>
+    </div>

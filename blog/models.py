@@ -1,9 +1,11 @@
+from email.policy import default
 from django.db import models
 
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length = 50)
     description = models.TextField(blank=True,null = True)
+    post_img = models.ImageField(upload_to='static/images',default="")
     date = models.DateTimeField(auto_now_add=True)
     code = models.TextField(max_length = 5000,null = True,blank = True)
     output = models.TextField(max_length = 1000,null=True,blank=True)

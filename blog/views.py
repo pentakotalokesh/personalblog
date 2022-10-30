@@ -1,9 +1,10 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
 from .forms import CommentForm
 def index(request):
-    post = Post.objects.all()
+    post = Post.objects.order_by('-date')[0:3]
     context={'post':post}
     return render(request,'blog/index.html',context)
 def blogview(request,pk):
@@ -22,6 +23,8 @@ def blogview(request,pk):
         comment_form = CommentForm()
     context={'post':p,'comment_form':comment_form,'comments':comments}
 
-
-    return render(request,'blog/blogview.html',context)
-
+    return render(request,'blog/post.html',context)
+def allposts(request):
+    posts = Post.objects.all().order_by('-date')[0:10]
+    context={'post':posts}
+    return render(request,'blog/allposts.html',context)

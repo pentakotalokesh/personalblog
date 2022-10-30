@@ -21,26 +21,22 @@
         <img id= "logo" src="{% static 'images/logo-black.svg' %}" width="35%"/>
         </a>
         <div class="header-right">
-            <a href="https://www.instagram.com/lokesh__pentakota/"><i class="fa fa-instagram"></i></a>
-            <a href="https://github.com/pentakotalokesh"><i class="fa fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/lokeshdeveloper"><i class="fa fa-linkedin"></i></a>
-            <a href=""><i class="fa fa-twitter"></i></a>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-github"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-twitter"></i>
         </div>
     </header>
     {% include 'navbar.html' %}
     <br>
     <br>
-    <h1>#Trending</h1>
+    <h1>All POSTS</h1>
     <div class="row">
         {% for post in post %}
-        <div class="column">
-            <img src="{{post.post_img.url}}" width="100%" />
-          <h2>{{post.title}}</h2>
-          <p>{{post.description}}</p>
+        <a href="{% url 'blogview' post.id %}"><h2>{{post.title}}</h2></a>
           <p>{{post.date}}</p>
           <br>
-          <a href="{% url 'blogview' post.id %}"><button id="btn">Read</button></a>
-        </div>
+          <hr/>
         {% endfor %}
       </div>
       <footer>
